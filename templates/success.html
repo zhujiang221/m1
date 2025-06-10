@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>秒杀成功</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-mobile/1.4.5/jquery.mobile.min.css">
+
+</head>
+<style>
+    .ui-bar-a, .ui-page-theme-a .ui-bar-inherit, html .ui-bar-a .ui-bar-inherit, html .ui-body-a .ui-bar-inherit, html body .ui-group-theme-a .ui-bar-inherit {
+        background-color: #97c34a /*{a-bar-background-color}*/;
+        border-color: #dddddd /*{a-bar-border}*/;
+        color: #60c34a /*{a-bar-color}*/;
+        text-shadow: 0 /*{a-bar-shadow-x}*/ 1px /*{a-bar-shadow-y}*/ 0 /*{a-bar-shadow-radius}*/ #eee /*{a-bar-shadow-color}*/;
+        font-weight: bold;
+    }
+    /*这是选中的状态*/
+    .ui-page-theme-a .ui-btn.ui-btn-active, html .ui-bar-a .ui-btn.ui-btn-active, html .ui-body-a .ui-btn.ui-btn-active, html body .ui-group-theme-a .ui-btn.ui-btn-active, html head + body .ui-btn.ui-btn-a.ui-btn-active, .ui-page-theme-a .ui-checkbox-on:after, html .ui-bar-a .ui-checkbox-on:after, html .ui-body-a .ui-checkbox-on:after, html body .ui-group-theme-a .ui-checkbox-on:after, .ui-btn.ui-checkbox-on.ui-btn-a:after, .ui-page-theme-a .ui-flipswitch-active, html .ui-bar-a .ui-flipswitch-active, html .ui-body-a .ui-flipswitch-active, html body .ui-group-theme-a .ui-flipswitch-active, html body .ui-flipswitch.ui-bar-a.ui-flipswitch-active, .ui-page-theme-a .ui-slider-track .ui-btn-active, html .ui-bar-a .ui-slider-track .ui-btn-active, html .ui-body-a .ui-slider-track .ui-btn-active, html body .ui-group-theme-a .ui-slider-track .ui-btn-active, html body div.ui-slider-track.ui-body-a .ui-btn-active {
+        background-color: #3388cc /*{a-active-background-color}*/;
+        border-color: #3388cc /*{a-active-border}*/;
+        color: #8bc34a /*{a-active-color}*/;
+        text-shadow: 0 /*{a-active-shadow-x}*/ 1px /*{a-active-shadow-y}*/ 0 /*{a-active-shadow-radius}*/ #3388cc /*{a-active-shadow-color}*/;
+    }
+    /*这是未选中的状态*/
+    .ui-page-theme-a .ui-btn, html .ui-bar-a .ui-btn, html .ui-body-a .ui-btn, html body .ui-group-theme-a .ui-btn, html head + body .ui-btn.ui-btn-a, .ui-page-theme-a .ui-btn:visited, html .ui-bar-a .ui-btn:visited, html .ui-body-a .ui-btn:visited, html body .ui-group-theme-a .ui-btn:visited, html head + body .ui-btn.ui-btn-a:visited {
+        background-color: #f6f6f6 /*{a-bup-background-color}*/;
+        border-color: #ddd /*{a-bup-border}*/;
+        color: #333 /*{a-bup-color}*/;
+        text-shadow: 0 /*{a-bup-shadow-x}*/ 1px /*{a-bup-shadow-y}*/ 0 /*{a-bup-shadow-radius}*/ #f3f3f3 /*{a-bup-shadow-color}*/;
+    }
+    .img{
+        width: 100px;
+        height: 100px;
+        border-radius: 50px;
+    }
+    .img img{
+        width: 100px;
+        height: 100px;
+        border-radius: 50px;
+    }
+
+</style>
+<body>
+<!--用网页做移动端页面都死div-->
+
+<!-- 主导航栏 -->
+<nav class="navbar navbar-expand-md navbar-light bg-light shadow-sm fixed-top">
+    <div class="container-fluid">
+
+        <form action="@{/home}" method="post" class="d-inline">
+            <a class="navbar-brand" href="#" type="submit">
+                <input type="hidden" name="id" value="${user.id}">
+                <i class="fas fa-hospital text-primary"></i> 住院服务系统
+            </a>
+        </form>
+
+        <!-- 移动端患者信息 -->
+        <div class="d-md-none ms-auto me-2">
+            <div class="d-flex flex-column text-end">
+                <small class="text-muted" text="'ID:' + ${pat_information.id}"></small>
+                <span class="small" text="${pat_information.name}"></span>
+            </div>
+        </div>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNav">
+            <ul class="navbar-nav me-auto">
+
+
+            </ul>
+
+            <!-- 桌面端患者信息 -->
+            <div class="d-flex align-items-center">
+                <a class="btn btn-outline-light" th:href="@{/login/patient}" style="background-color: #dee2e6;">
+                    <i class="fas fa-sign-out-alt"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+<h2>-</h2>
+<h7>-</h7>
+<div data-role="main">
+  <h3>支付成功</h3>
+    <a href="/seckill" data-role="button">回到首页</a>
+</div>
+
+
+
+<!-- 页脚 -->
+<footer class="nav-footer mt-4 fixed-bottom">
+    <div class="container-fluid h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col text-center text-muted">
+                &copy; 2025 明亮医院系统
+                <span class="d-none d-md-inline">| 技术支持：xx信息科技</span>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mobile/1.4.5/jquery.mobile.min.js"></script>
+</body>
+</html>
